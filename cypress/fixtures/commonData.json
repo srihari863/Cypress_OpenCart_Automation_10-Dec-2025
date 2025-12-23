@@ -1,0 +1,14 @@
+{
+    "commonData": {
+        "logoutLink": "Logout",
+        "loginLink": "Login",
+        "signupLink": "Sign Up"
+    },
+    "successUrls": {
+        "homePage": "/home",
+        "accountCreationSuccess": "/success",
+        "loginPage": "/login",
+        "accountPage": "/account",
+        "forgottenPasswordPage": "/forgotten"
+    }
+}

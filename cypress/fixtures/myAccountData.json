@@ -1,0 +1,16 @@
+{
+    "myAccountHeaderList": [
+        "My Account",
+        "My Orders",
+        "My Affiliate Account",
+        "Newsletter"
+    ],
+    "myAccountOptionsList": [
+        "My Account",
+        "Order History",
+        "Transactions",
+        "Downloads",
+        "Logout"
+    ],
+    "searchProduct": "mac" 
+}

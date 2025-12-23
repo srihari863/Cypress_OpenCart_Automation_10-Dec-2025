@@ -1,0 +1,24 @@
+{
+  "products": [
+        "iPhone",
+        "MacBook",
+        "Samsung Galaxy"
+    ],
+  "productImageTestData": [
+    ["Macbook", "MacBook Pro", 4],
+    ["Macbook", "MacBook Air", 4],
+    ["iMac", "iMac", 3],
+    ["Samsung", "Samsung SyncMaster 941BW", 1],
+    ["Apple", "Apple Cinema 30\"", 6]
+  ], 
+  "productMetaData": {
+    "Brand": "Apple",
+    "Product Code": "Product 18",
+    "Reward Points": 800,
+    "Availability": "Out Of Stock"
+  },
+  "productPriceData":{
+    "price": "$2,000.00",
+    "Ex Tax":"$2,000.00"
+  }
+}

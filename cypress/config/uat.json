@@ -1,0 +1,9 @@
+{
+    "environment": {
+        "baseUrl": "https://uat.example.com"
+    },
+    "credentials": {
+        "username": "uat_user",
+        "password": "uat_password"
+    }
+}
