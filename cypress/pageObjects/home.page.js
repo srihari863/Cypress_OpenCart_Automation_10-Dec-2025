@@ -40,6 +40,5 @@ class homePage {
         cy.xpath(this.registerLink).wait(1000).click({force: true});
 
     }
-
 }
 export default homePage;

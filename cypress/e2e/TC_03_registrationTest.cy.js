@@ -1,10 +1,7 @@
-import registrationPage from "../pageObjects/registration.page";
-import LoginPage from "../pageObjects/login.page";
+import { registrationPage, loginPage } from "../pageObjects/index";
 import successUrls from "../fixtures/commonData.json";
 import { faker } from '@faker-js/faker';
 
-const registration = new registrationPage();
-const loginPage = new LoginPage();
 const successUrl = successUrls.successUrls;
 
 describe('User Registration Tests', () => {
@@ -15,7 +12,7 @@ describe('User Registration Tests', () => {
 
     it('Should register a new user successfully', () => {
         loginPage.clickMyAccountMenu();
-        registration.clickRegisterLink();
+        registrationPage.clickRegisterLink();
 
         const firstName = faker.person.firstName();
         const lastName = faker.person.lastName();
@@ -24,22 +21,22 @@ describe('User Registration Tests', () => {
         const password = faker.internet.password({length: 8});
         const subscribe = 'Yes';
 
-        registration.fillRegistrationForm(firstName, lastName, email, telephone, password, subscribe);
-        registration.agreeToPrivacyPolicy();
-        registration.submitRegistration();
+        registrationPage.fillRegistrationForm(firstName, lastName, email, telephone, password, subscribe);
+        registrationPage.agreeToPrivacyPolicy();
+        registrationPage.submitRegistration();
         cy.url().should('include', successUrl.accountCreationSuccess);
-        cy.xpath(registration.accountSuccessPageTitle)
+        cy.xpath(registrationPage.accountSuccessPageTitle)
         .should('exist').and('contain.text', 'Your Account Has Been Created!');
-        cy.xpath(registration.yourAccountCreatedMsg)
+        cy.xpath(registrationPage.yourAccountCreatedMsg)
             .should('be.visible')
             .and('contain.text', 'Your Account Has Been Created!');
-        cy.xpath(registration.successMessageText)
+        cy.xpath(registrationPage.successMessageText)
             .should('be.visible')
             .and('contain.text', 'Congratulations! Your new account has been successfully created!');
-        cy.xpath(registration.sucssBreadCrumb)
+        cy.xpath(registrationPage.sucssBreadCrumb)
             .should('be.visible')
             .and('contain.text', 'Success');
-        registration.clickSuccessPageContinueButton();
+        registrationPage.clickSuccessPageContinueButton();
         cy.url().should('include', successUrl.accountPage);
     });
 });

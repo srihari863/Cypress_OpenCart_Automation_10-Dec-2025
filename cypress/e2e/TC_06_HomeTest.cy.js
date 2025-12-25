@@ -1,6 +1,4 @@
-import HomePage from '../pageObjects/home.page';
-
-const homePage = new HomePage();
+import {homePage} from '../pageObjects/index';
 
 describe('OpenCart Home page Tests', () => {
     beforeEach(() => {
@@ -18,6 +16,7 @@ describe('OpenCart Home page Tests', () => {
         homePage.navigateToLoginPage();
         cy.url().should('include', 'route=account/login');
         cy.go('back');
+        cy.wait(3000);
         homePage.navigateToRegisterPage(); 
         cy.url().should('include', 'route=account/register');
         cy.go('back');

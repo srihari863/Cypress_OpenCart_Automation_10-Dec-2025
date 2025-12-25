@@ -1,10 +1,8 @@
-import LoginPage from '../pageObjects/login.page.js';
-import LogoutPage from '../pageObjects/logout.page.js';
+import {loginPage, logoutPage} from '../pageObjects/index.js'
 import common from '../fixtures/commonData.json';
 import LoginData from '../fixtures/loginData.json';
 import Utils from '../utils/utils.js';
-const loginPage = new LoginPage();
-const logoutPage = new LogoutPage();
+
 const utils = new Utils();
 const loginData = LoginData;
 const commonData = common.successUrls;
