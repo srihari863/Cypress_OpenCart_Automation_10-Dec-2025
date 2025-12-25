@@ -1,17 +1,11 @@
-import MyAccountPage from "../pageObjects/myAccount.page";
-import LoginPage from '../pageObjects/login.page.js';
-import LogoutPage from '../pageObjects/logout.page.js'
+import { myAccountPage,
+    loginPage,logoutPage,
+    productDetailsPage,resultsPage
+ } from "../pageObjects/index.js";
 import LoginData from '../fixtures/loginData.json';
-import ProductDetailsPage from "../pageObjects/productDetails.page.js";
 import ProductData from '../fixtures/productsData.json';
-import ResultsPage from "../pageObjects/results.page.js";
 import Utils from '../utils/utils.js';
 
-const loginPage = new LoginPage();
-const logoutPage = new LogoutPage();
-const myAccountPage = new MyAccountPage();
-const productDetailsPage = new ProductDetailsPage();
-const resultsPage = new ResultsPage();
 const loginData = LoginData;
 const productsData = ProductData;
 const utils = new Utils();

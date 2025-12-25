@@ -1,12 +1,9 @@
-import MyAccountPage from '../pageObjects/myAccount.page.js';
-import LoginPage from '../pageObjects/login.page.js';
+import { myAccountPage, loginPage } from '../pageObjects/index.js';
 import LoginData from '../fixtures/loginData.json';
 import CommonData from '../fixtures/commonData.json';
 import ProductsData from '../fixtures/productsData.json'
 import MyAccountData from '../fixtures/myAccountData.json'
 
-const myAccountPage = new MyAccountPage();
-const loginPage = new LoginPage();
 const loginData = LoginData;
 const commonData = CommonData.commonData;
 const successUrls = CommonData.successUrls;
