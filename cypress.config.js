@@ -1,13 +1,17 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
+  reporter: 'cypress-mochawesome-reporter',
+  video: true,
   e2e: {
-    baseUrl: 'http://tutorialsninja.com/demo/index.php',
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      //implement node event listeners here
+      require('cypress-mochawesome-reporter/plugin')(on);
     },
   },
   env: {
-    URL: 'http://tutorialsninja.com/demo/index.php',
+    baseUrl: 'https://tutorialsninja.com/demo',
+    loginUrl: 'https://tutorialsninja.com/demo/index.php?route=account/login',
   },
 });
+

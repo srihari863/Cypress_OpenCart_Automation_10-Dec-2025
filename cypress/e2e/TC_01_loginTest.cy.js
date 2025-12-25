@@ -1,5 +1,4 @@
 import LoginPage from '../pageObjects/login.page.js';
-
 import LogoutPage from '../pageObjects/logout.page.js';
 import common from '../fixtures/commonData.json';
 import LoginData from '../fixtures/loginData.json';
@@ -12,7 +11,7 @@ const commonData = common.successUrls;
 
 describe('Login Test Suite', () => {
     beforeEach(() => {
-        cy.visit('/');
+        cy.visit(Cypress.env('baseUrl'));
         loginPage.clickMyAccountMenu();
         loginPage.clickLoginLink();
     }); 
@@ -23,8 +22,7 @@ describe('Login Test Suite', () => {
         cy.xpath(loginPage.breadCrumbHomeIcon).should('be.visible');
         cy.get(loginPage.forgottenPasswordLink).should('be.visible');
         cy.xpath(loginPage.continueButton).should('be.visible');
-        cy.login();
-        //loginPage.doLogin(loginData.validCredentials.username, loginData.validCredentials.password);
+        cy.login(loginData.validCredentials.username, loginData.validCredentials.password);
         cy.xpath(loginPage.loginPageTitle).should('have.text', 'My Account');
         cy.xpath(loginPage.loginBreadCrumb).should('be.visible');
         cy.xpath(loginPage.loginMyAccountHeaderText).should('be.visible');
@@ -32,7 +30,7 @@ describe('Login Test Suite', () => {
 
     it('Should logout successfully', () => {
         // First, login
-        loginPage.doLogin(loginData.validCredentials.username, loginData.validCredentials.password);
+        cy.login(loginData.validCredentials.username, loginData.validCredentials.password);
         // Then logout
         loginPage.clickMyAccountMenu();
         cy.xpath(loginPage.logoutLink)
@@ -51,12 +49,8 @@ describe('Login Test Suite', () => {
     // Data-driven tests for invalid credentials
     loginData.invalidCredentials.forEach((credentials) => {
         it(`Should verify login with ${credentials.description}`, () => {
-            loginPage.doLogin(credentials.username, credentials.password);
+            cy.login(credentials.username, credentials.password);
             utils.verifyInvalidAlet(loginPage.invalidAlert);
         });
     });
-});
-
-it('login test', function() {
-
 });

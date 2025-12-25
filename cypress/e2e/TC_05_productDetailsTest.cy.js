@@ -18,10 +18,10 @@ const utils = new Utils();
 
 describe('Product Details Test Suite', () => {
     beforeEach(() => {
-        cy.visit(LoginData.baseUrl);
+        cy.visit(Cypress.env('baseUrl'));
         loginPage.clickMyAccountMenu();
         loginPage.clickLoginLink();
-        loginPage.doLogin(loginData.validCredentials.username, loginData.validCredentials.password);
+        cy.login(loginData.validCredentials.username, loginData.validCredentials.password);
     });
 
     afterEach(() => {
