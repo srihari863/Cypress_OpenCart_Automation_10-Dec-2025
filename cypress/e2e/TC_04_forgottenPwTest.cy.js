@@ -14,7 +14,7 @@ const successUrl = SuccessUrls.successUrls;
 describe('Forgotten Password Tests', () => {
 
     beforeEach(() => {
-        cy.visit(loginData.baseUrl);
+        cy.visit(Cypress.env('baseUrl'));
         loginPage.clickMyAccountMenu();
         loginPage.clickLoginLink();
     });

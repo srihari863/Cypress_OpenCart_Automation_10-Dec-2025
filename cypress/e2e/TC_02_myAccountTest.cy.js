@@ -3,22 +3,22 @@ import LoginPage from '../pageObjects/login.page.js';
 import LoginData from '../fixtures/loginData.json';
 import CommonData from '../fixtures/commonData.json';
 import ProductsData from '../fixtures/productsData.json'
-import ResultsPage from "../pageObjects/results.page";
+import MyAccountData from '../fixtures/myAccountData.json'
 
 const myAccountPage = new MyAccountPage();
-const resultsPage = new ResultsPage();
 const loginPage = new LoginPage();
 const loginData = LoginData;
 const commonData = CommonData.commonData;
 const successUrls = CommonData.successUrls;
 const productsData = ProductsData.products;
+const myAccountData = MyAccountData;
 
 describe('My Account Test Suite', () => {
     beforeEach(() => {
-        cy.visit(LoginData.baseUrl);
+        cy.visit(Cypress.env('baseUrl'));
         loginPage.clickMyAccountMenu();
         loginPage.clickLoginLink();
-        loginPage.doLogin(loginData.validCredentials.username, loginData.validCredentials.password);
+        cy.login(loginData.validCredentials.username, loginData.validCredentials.password);
     });
 
     it('Should verify My Account Menu Links after login', () => {
@@ -31,23 +31,12 @@ describe('My Account Test Suite', () => {
 
     it('Verify myAccount Header list', () => {
         // Verify we're on My Account page with the header visible
-        const expectedHeaders = [
-            'My Account',
-            'My Orders',
-            'My Affiliate Account',
-            'Newsletter'];
-        myAccountPage.getMyAccountHeaderOptionsList(expectedHeaders);
+        myAccountPage.getMyAccountHeaderOptionsList(myAccountData.myAccountHeaderList);
 
     });
 
     it('Verify My Account Menu Options list', () => {
-        const expectedMenuOptions = [
-            "My Account",
-            "Order History",
-            "Transactions",
-            "Downloads",
-            "Logout"];
-        myAccountPage.getMyAccountMenuOptionList(expectedMenuOptions);
+        myAccountPage.getMyAccountMenuOptionList(myAccountData.myAccountOptionsList);
         //cy.findBrokenLinksOnThePage();
     });
 
